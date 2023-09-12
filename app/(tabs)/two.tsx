@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, Button } from 'react-native';
-import EditScreenInfo from '../../components/EditScreenInfo';
+import dotenv from 'dotenv';
 import { Text, View } from '../../components/Themed';
+dotenv.config();
 
 export default function TabTwoScreen() {
   const [query, setQuery] = useState('');
   const [searchedJoke, setSearchedJoke] = useState('');
 
   const handleSearch = async () => {
+    const apiUrl = process.env.API_CHUCKNORRIS;
     try {
-      const response = await fetch(`https://api.chucknorris.io/jokes/search?query=${query}`);
+      const response = await fetch(`${apiUrl}/jokes/search?query=${query}`);
       const data = await response.json();
       const joke = data.result[0]?.value;
       setSearchedJoke(joke || 'No joke found');
