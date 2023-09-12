@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Button } from 'react-native';
-import dotenv from 'dotenv';
+import { env } from 'expo-env';
 import { Text, View } from '../../components/Themed';
-dotenv.config();
+
 
 export default function TabOneScreen() {
   const [joke, setJoke] = useState('');
@@ -12,7 +12,7 @@ export default function TabOneScreen() {
   }, []);
 
   const fetchRandomJoke = async () => {
-    const apiUrl = process.env.API_CHUCKNORRIS;
+    const apiUrl = env.API_CHUCKNORRIS;
     try {
       const response = await fetch(`${apiUrl}/jokes/random`);
       const data = await response.json();

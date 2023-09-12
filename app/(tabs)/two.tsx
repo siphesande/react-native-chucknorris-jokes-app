@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, Button } from 'react-native';
-import dotenv from 'dotenv';
+import { env } from 'expo-env';
+
 import { Text, View } from '../../components/Themed';
-dotenv.config();
+
 
 export default function TabTwoScreen() {
   const [query, setQuery] = useState('');
   const [searchedJoke, setSearchedJoke] = useState('');
 
   const handleSearch = async () => {
-    const apiUrl = process.env.API_CHUCKNORRIS;
+    const apiUrl = env.API_CHUCKNORRIS;
     try {
       const response = await fetch(`${apiUrl}/jokes/search?query=${query}`);
       const data = await response.json();

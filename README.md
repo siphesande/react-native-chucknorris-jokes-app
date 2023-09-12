@@ -38,5 +38,5 @@ Download the Expo Go app from device's app store (iOS App Store or Google Play S
 Open the Expo Go app and scan the QR code displayed in your terminal.
 My React Native app should open on your physical device.
 
-![Screenshot](chuck-norris.png)
+![Screenshot](assets/images/chuck-norris.png)
 
